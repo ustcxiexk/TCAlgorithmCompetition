@@ -9,7 +9,7 @@ LastChange: ZXH
 LastChangeTime: 14:46 4/19
 '''
 
-df = pd.read_csv('train.csv')
+df = pd.read_csv('./Data/train.csv')
 rows, cols = df.shape[0], df.shape[1]
 print (rows, cols)
 df1, df2 = df[df['label']==1], df[df['label']==-1]

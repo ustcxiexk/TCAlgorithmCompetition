@@ -1,62 +1,42 @@
+# coding=utf-8
 import pandas as pd
-import numpy as np
-import matplotlib as plt
-import fileinput
+import os
 
-DEBUG = 1
+# Generate userFeature
+ad_feature=pd.read_csv('./Data/adFeature.csv', nrows = 100)
+if os.path.exists('./Data/userFeature.csv'):
+    print('userFeature Already Exist')
+    user_feature=pd.read_csv('./Data/userFeature.csv', nrows = 100)
+else:    
+    userFeature_data = []
+    print('Generating userFeature...')
+    with open('./Data/userFeature.data', 'r') as f:
+        for i, line in enumerate(f):
+            line = line.strip().split('|')
+            userFeature_dict = {}
+            for each in line:
+                each_list = each.split(' ')
+                userFeature_dict[each_list[0]] = ' '.join(each_list[1:])
+            userFeature_data.append(userFeature_dict)
+            if i % 100000 == 0:
+                print(i)
+        user_feature = pd.DataFrame(userFeature_data)
+        del userFeature_data # release memory
+        user_feature.to_csv('./Data/userFeature.csv', index=False)
 
-column = pd.Series([
-    'uid',
-    'age',
-    'gender',
-    'marriageStatus',
-    'education',
-    'consumptionAbility',
-    'LBS',
-    'interest1',
-    'interest2',
-    'interest3',
-    'interest4',
-    'interest5',
-    'kw1',
-    'kw2',
-    'kw3',
-    'topic1',
-    'topic2',
-    'topic3',
-    'appIdInstall',
-    'appIdAction',
-    'ct',
-    'os',
-    'carrier',
-    'house'
-])
-dfData = pd.DataFrame(columns=column)
+# Generate featuredTrain
+dfTrain = pd.read_csv('./Data/train.csv', nrows = 100)
+train_merged = pd.merge(dfTrain,user_feature,how='left',on='uid')
+train_merged.to_csv('./Data/featuredTrain.csv')
+del dfTrain # release memory
 
-tempdf = []
-cnt = 0
-with fileinput.input(files=r'userFeature.data') as f:
-    for line in f:
-        d = {}
-        for tmpstring in line.strip().split('|'):
-            l = tmpstring.split()
-            d[l[0]] = [int(i) for i in l[1:]] if len(l) > 2 else int(l[1])
+# Generate featuredTest
+dfTest1 = pd.read_csv('./Data/test1.csv', nrows = 100)
+test1_merged = pd.merge(dfTest1,user_feature,how='left',on='uid')
+test1_merged.to_csv('./Data/featuredTest1.csv')
+del dfTest1 # release memory
 
-        if DEBUG:
-            print(line, d)
+del user_feature # release memory
 
-        tempdf.append(d)
-        cnt += 1
 
-        if DEBUG:
-            if cnt >= 10:
-                dfData = pd.concat([dfData, pd.DataFrame(tempdf, columns=column)])
-                break            
-        else:
-            if not (cnt % 10000):
-                print(cnt, 'lines processed')
-                dfData = pd.concat([dfData, pd.DataFrame(tempdf, columns=column)])
-            
-if DEBUG:
-    print(dfData)
-dfData.to_csv(r'Data.csv')
+
