@@ -6,7 +6,7 @@ import numpy as np
 Author: XXK
 Version: 0.11
 LastChange: ZXH
-LastChangeTime: 14:46 4/19
+LastChangeTime: 8.15 4/20
 '''
 
 df = pd.read_csv('./Data/train.csv')
@@ -18,7 +18,7 @@ numOfNeg = df2.shape[0]
 print (numOfPos, numOfNeg)
 
 # 'label == 1' %
-labels = ['SeadUser', 'NonSeadUser']
+labels = ['SeedUser', 'NonSeedUser']
 sizes = [numOfPos/rows, 1 - numOfPos/rows]
 patches,l_text,p_text = plt.pie(sizes,labels=labels,autopct = '%3.1f%%',shadow = False,
                                 startangle = 90)
@@ -28,17 +28,18 @@ a = df[['aid', 'uid', 'label']].groupby(['aid','label']).count()
 d = {}
 for (aid, label), count in a.itertuples():
     if aid not in d:
-        d[aid] = 1
-    if label == 1:
-        d[aid] *= count
-    elif label == -1:
-        d[aid] /= count
+        d[aid] = count
+    else:
+        d[aid] = count / (count + d[aid])
 
 # aid -> 'label == 1'%
+plt.subplot(211)
+plt.xlabel('aid')
+plt.ylabel('Seed/NonSeed Ratio')
 pd.Series(d).plot()
-plt.show()
 # len(aid) -> 'label == 1'%
+plt.subplot(212)
+plt.xlabel('n-th')
+plt.ylabel('Seed/NonSeed Ratio')
 pd.Series(list(d.values())).plot()
 plt.show()
-
-
