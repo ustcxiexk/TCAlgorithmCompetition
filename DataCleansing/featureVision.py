@@ -17,12 +17,13 @@ numOfPos = df1.shape[0]
 numOfNeg = df2.shape[0]
 print (numOfPos, numOfNeg)
 
-# 'label == 1' %
+#整体及部分均衡性图
+plt.subplot(211)
 labels = ['SeedUser', 'NonSeedUser']
 sizes = [numOfPos/rows, 1 - numOfPos/rows]
 patches,l_text,p_text = plt.pie(sizes,labels=labels,autopct = '%3.1f%%',shadow = False,
                                 startangle = 90)
-plt.show()
+
 
 a = df[['aid', 'uid', 'label']].groupby(['aid','label']).count()
 d = {}
@@ -33,12 +34,12 @@ for (aid, label), count in a.itertuples():
         d[aid] = count / (count + d[aid])
 
 # aid -> 'label == 1'%
-plt.subplot(211)
+plt.subplot(223)
 plt.xlabel('aid')
 plt.ylabel('Seed/NonSeed Ratio')
 pd.Series(d).plot()
 # len(aid) -> 'label == 1'%
-plt.subplot(212)
+plt.subplot(224)
 plt.xlabel('n-th')
 plt.ylabel('Seed/NonSeed Ratio')
 pd.Series(list(d.values())).plot()
