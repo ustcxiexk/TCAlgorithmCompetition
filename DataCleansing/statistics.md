@@ -28,6 +28,6 @@
 ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/Missing_Percentage.png)
 
 ### 特征之间的相关性
-![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/dependenc.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/dependency.png)
 
 
