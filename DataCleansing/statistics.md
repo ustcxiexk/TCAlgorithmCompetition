@@ -1,3 +1,6 @@
-
- ![Aaron Swartz](https://github.com/ustcxiexk/TrickGame/raw/master/FullGame/application/static/image/table.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/age.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/carrier.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/consumptionAbility.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/education.png)
 ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/LBS.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/Missing_Percentage.png)
