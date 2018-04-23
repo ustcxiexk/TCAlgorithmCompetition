@@ -29,6 +29,7 @@
 
 ### 特征之间的相关性
 ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/dependency.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/dependency2.png)
 
 
 
