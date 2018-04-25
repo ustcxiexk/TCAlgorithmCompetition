@@ -23,7 +23,7 @@
 
 ### 地理位置
 ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/LBS.png)
-![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/LBS_uid.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/LBS_uid.png)  
 地理位置也是经过加密编码的一维信息。聚类的问题？
 
 ### 各特征的缺失比例
