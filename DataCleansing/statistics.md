@@ -7,6 +7,7 @@
 ### 性别
 ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/gender.png)
 性别分为男女两项（此处的0表示缺失数据，后面的特征类似）
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/seedUserAge.png), ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/nonSeedUserAge.png)
 
 ### 运营商
 ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/carrier.png)
@@ -22,6 +23,7 @@
 
 ### 地理位置
 ![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/LBS.png)
+![Aaron Swartz](https://github.com/ustcxiexk/TCAlgorithmCompetition/blob/master/DataCleansing/images/LBS_uid.png)
 地理位置也是经过加密编码的一维信息。聚类的问题？
 
 ### 各特征的缺失比例
